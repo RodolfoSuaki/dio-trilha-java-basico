@@ -25,7 +25,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
+        return "CarrinhoDeCompras.Item{" +
                 "nome='" + nome + '\'' +
                 ", preco=" + preco +
                 ", quantidade=" + quantidade +
