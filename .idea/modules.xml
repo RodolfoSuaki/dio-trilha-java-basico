@@ -3,11 +3,17 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/CarrinhoDeCompras.iml" filepath="$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/CarrinhoDeCompras.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Set/ConjuntoPalavrasUnicas/ConjuntoPalavrasUnicas.iml" filepath="$PROJECT_DIR$/Collections/Set/ConjuntoPalavrasUnicas/ConjuntoPalavrasUnicas.iml" />
       <module fileurl="file://$PROJECT_DIR$/ContaBanco/ContaBanco.iml" filepath="$PROJECT_DIR$/ContaBanco/ContaBanco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Map/ContagemPalavras/ContagemPalavras.iml" filepath="$PROJECT_DIR$/Collections/Map/ContagemPalavras/ContagemPalavras.iml" />
       <module fileurl="file://$PROJECT_DIR$/DesafioControleFluxo/DesafioControleFluxo/DesafioControleFluxo.iml" filepath="$PROJECT_DIR$/DesafioControleFluxo/DesafioControleFluxo/DesafioControleFluxo.iml" />
       <module fileurl="file://$PROJECT_DIR$/DesafioControleFluxo/DesafioControleFluxo1.iml" filepath="$PROJECT_DIR$/DesafioControleFluxo/DesafioControleFluxo1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Map/Dicionario/Dicionario.iml" filepath="$PROJECT_DIR$/Collections/Map/Dicionario/Dicionario.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Set/GerenciadorAlunos/GerenciadorAlunos.iml" filepath="$PROJECT_DIR$/Collections/Set/GerenciadorAlunos/GerenciadorAlunos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Set/ListaTarefa/ListaTarefa.iml" filepath="$PROJECT_DIR$/Collections/Set/ListaTarefa/ListaTarefa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/Map/LivrariaOnline/LivrariaOnline.iml" filepath="$PROJECT_DIR$/Collections/Map/LivrariaOnline/LivrariaOnline.iml" />
       <module fileurl="file://$PROJECT_DIR$/Collections/List/OrdenacaoNumeros/OrdenacaoNumeros.iml" filepath="$PROJECT_DIR$/Collections/List/OrdenacaoNumeros/OrdenacaoNumeros.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/SomaNumero/SomaNumero.iml" filepath="$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/SomaNumero/SomaNumero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Collections/List/SomaNumero/SomaNumero.iml" filepath="$PROJECT_DIR$/Collections/List/SomaNumero/SomaNumero.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/dio-trilha-java-basico.iml" filepath="$PROJECT_DIR$/.idea/dio-trilha-java-basico.iml" />
     </modules>
   </component>
