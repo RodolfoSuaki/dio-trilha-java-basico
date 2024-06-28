@@ -1,54 +1,111 @@
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class LivrariaOnline {
-    Map<String, Livro> livrariaList;
+    private Map<String, Livro> livros;
 
     public LivrariaOnline() {
-        this.livrariaList = new HashMap<>();
+        this.livros = new HashMap<>();
     }
 
-    public void adicionarLivro(String link, Livro){
-        livrariaList.put(link, new Livro);
+    public void adicionarLivro(String link, Livro livro) {
+        livros.put(link, livro);
     }
 
-    public void removerLivro(String titulo){
-        Livro livroARemover = null;
-        for (Map.Entry<String, Livro> entry: livrariaList.entrySet()){
-            if(entry.getValue().getTitulo().equalsIgnoreCase(titulo)){
-                livroARemover = entry.getValue();
+    public void removerLivro(String titulo) {
+        List<String> chavesRemover = new ArrayList<>();
+        for (Map.Entry<String, Livro> entry : livros.entrySet()) {
+            if (entry.getValue().getTitulo().equalsIgnoreCase(titulo)) {
+                chavesRemover.add(entry.getKey());
             }
         }
-        livrariaList.remove(livroARemover);
+        for (String chave : chavesRemover) {
+            livros.remove(chave);
+        }
     }
 
-    public void exibirLivrosOrdenadosPorPreco(){
-        Map<String, Livro> livrariaTree = new TreeMap<>(livrariaList);
-        System.out.println(livrariaTree);
+    public Map<String, Livro> exibirLivrosOrdenadosPorPreco() {
+        List<Map.Entry<String, Livro>> livrosParaOrdenarPorPreco = new ArrayList<>(livros.entrySet());
+
+        Collections.sort(livrosParaOrdenarPorPreco, new ComparatorPorPreco());
+
+        Map<String, Livro> livrosOrdenadosPorPreco = new LinkedHashMap<>();
+
+        for (Map.Entry<String, Livro> entry : livrosParaOrdenarPorPreco) {
+            livrosOrdenadosPorPreco.put(entry.getKey(), entry.getValue());
+        }
+
+        return livrosOrdenadosPorPreco;
     }
 
-    public Map<String, Livro> pesquisarLivrosPorAutor(String autor){
-        Map<String, Livro> livros = null;
-        for(Map.Entry<String, Livro> entry: livrariaList.entrySet()){
-            if (entry.getValue().getAutor().equalsIgnoreCase(autor)){
-                livros.put(entry.getKey(),entry.getValue());
+    public Map<String, Livro> exibirLivrosOrdenadosPorAutor() {
+        List<Map.Entry<String, Livro>> livrosParaOrdenarPorAutor = new ArrayList<>(livros.entrySet());
+
+        Collections.sort(livrosParaOrdenarPorAutor, new ComparatorPorAutor());
+
+        Map<String, Livro> livrosOrdenadosPorAutor = new LinkedHashMap<>();
+
+        for (Map.Entry<String, Livro> entry : livrosParaOrdenarPorAutor) {
+            livrosOrdenadosPorAutor.put(entry.getKey(), entry.getValue());
+        }
+
+        return livrosOrdenadosPorAutor;
+    }
+
+    public Map<String, Livro> pesquisarLivrosPorAutor(String autor) {
+        Map<String, Livro> livrosPorAutor = new LinkedHashMap<>();
+        for (Map.Entry<String, Livro> entry : livros.entrySet()) {
+            Livro livro = entry.getValue();
+            if (livro.getAutor().equals(autor)) {
+                livrosPorAutor.put(entry.getKey(), livro);
             }
         }
-        return livros;
+        return livrosPorAutor;
     }
 
-    public Livro obterLivroMaisCaro(){
-        Map<String, Livro> livroMaisCaro = null;
-        double valorMaisCaro = Integer.MIN_VALUE;
-        Map<String, Livro> livrariaTree = new TreeMap<>(livrariaList);
-        for(Map.Entry<String, Livro> entry: livrariaTree.entrySet()){
-            if(entry.getValue().getPreco() > valorMaisCaro){
-                livroMaisCaro.put(entry.getKey(), entry.getValue());
-                valorMaisCaro = entry.getValue().getPreco();
+    public List<Livro> obterLivroMaisCaro() {
+        List<Livro> livrosMaisCaros = new ArrayList<>();
+        double precoMaisAlto = Double.MIN_VALUE;
+
+        if (!livros.isEmpty()) {
+            for (Livro livro : livros.values()) {
+                if (livro.getPreco() > precoMaisAlto) {
+                    precoMaisAlto = livro.getPreco();
+                }
+            }
+        } else {
+            throw new NoSuchElementException("A livraria está vazia!");
+        }
+
+        for(Map.Entry<String, Livro> entry: livros.entrySet()) {
+            if(entry.getValue().getPreco() == precoMaisAlto) {
+                Livro livroComPrecoMaisAlto = livros.get(entry.getKey());
+                livrosMaisCaros.add(livroComPrecoMaisAlto);
             }
         }
-    return (Livro) livroMaisCaro;
+        return livrosMaisCaros;
+    }
+
+    public List<Livro> obterLivroMaisBarato() {
+        List<Livro> livrosMaisBaratos = new ArrayList<>();
+        double precoMaisBaixo = Double.MAX_VALUE;
+
+        if (!livros.isEmpty()) {
+            for (Livro livro : livros.values()) {
+                if (livro.getPreco() < precoMaisBaixo) {
+                    precoMaisBaixo = livro.getPreco();
+                }
+            }
+        } else {
+            throw new NoSuchElementException("A livraria está vazia!");
+        }
+
+        for(Map.Entry<String, Livro> entry: livros.entrySet()) {
+            if(entry.getValue().getPreco() == precoMaisBaixo) {
+                Livro livroComPrecoMaisBaixo = livros.get(entry.getKey());
+                livrosMaisBaratos.add(livroComPrecoMaisBaixo);
+            }
+        }
+        return livrosMaisBaratos;
     }
 
     public static void main(String[] args) {
@@ -75,7 +132,7 @@ public class LivrariaOnline {
         System.out.println("Livro mais caro: " + livrariaOnline.obterLivroMaisCaro());
 
         // Obtém e exibe o livro mais barato
-        //System.out.println("Livro mais barato: " + livrariaOnline.obterLivroMaisBarato());
+        System.out.println("Livro mais barato: " + livrariaOnline.obterLivroMaisBarato());
 
         // Remover um livro pelo título
         livrariaOnline.removerLivro("1984");
