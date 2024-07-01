@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BancoDigital/BancoDigital.iml" filepath="$PROJECT_DIR$/BancoDigital/BancoDigital.iml" />
       <module fileurl="file://$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/CarrinhoDeCompras.iml" filepath="$PROJECT_DIR$/Collections/List/CarrinhoDeCompras/CarrinhoDeCompras.iml" />
       <module fileurl="file://$PROJECT_DIR$/Collections/Set/ConjuntoPalavrasUnicas/ConjuntoPalavrasUnicas.iml" filepath="$PROJECT_DIR$/Collections/Set/ConjuntoPalavrasUnicas/ConjuntoPalavrasUnicas.iml" />
       <module fileurl="file://$PROJECT_DIR$/ContaBanco/ContaBanco.iml" filepath="$PROJECT_DIR$/ContaBanco/ContaBanco.iml" />
